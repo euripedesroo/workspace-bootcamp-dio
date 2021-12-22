@@ -1,0 +1,76 @@
+comandos git
+
+O que é Blob no git?
+Cada arquivo no Git é armazenado como um objeto blob, por exemplo, a partir do conteúdo do arquivo logo.png
+ele gera um hash que será armazenado em algum lugar endereçável como aa1b2fb696a831c89c53f787e03d863691d2b671
+ex
+echo -e 'conteudo' | openssl sha1 (comando pra gerar o chave em ssl)
+echo -e 'blob 9\0conteudo' | openssl sha1 (recupera e exibe a chave em ssl evitando criar outra o 9 é o tamanho da plvr e o 0)
+
+O que é tree em git?
+A tree representa um diretório, contendo uma mistura de blobs e trees.
+Podemos descobrir que ela resolve usar git rev-parse, para determinar que essa tree é um objeto com o hash 
+Então como que essa tree é armazenada no repositório? Bem, acontece que é outro tipo de objeto, armazenado no mesmo mecanismo como blobs. Você pode descobrir a tree a partir de um commit (ou branch) com o sufixo ^{tree}:
+
+(master) $ git cat-file -t HEAD^{tree}
+tree
+
+Commits
+Depois de ver a maneira como as trees são armazenadas em Git (e na semana anterior como os objetos são armazenados em Git), agora vamos ver como eles são ligados a commits, que são a base de branches, tags e afins. Aqui está um exemplo de commit:
+
+(master) $ git cat-file -p HEAD
+tree 2b61e34a91ca9780ea2f943e72f1a4a022cdd206
+parent f44c95384463187acd83ff418ddd9c48659db8dd
+author Alex Blewitt <alex.blewitt@gmail.com> 1314178977 +0100
+committer Alex Blewitt <alex.blewitt@gmail.com> 1314178977 +010
+
+Chave SSH e token
+Para usar o github.com no computador é preciso autenticar via ssh e por isso é necessário gerar a chave no computador
+e depois colocar em setting na conta do github
+comando:
+ssh-keygne -t ed25519 -C seuemail@provedor.com
+para finalizar digite o comando pra rodar o agente sshd por serviço
+eval $(ssh-agent -s)
+e o comando para o agente carregar a chave privada
+ssh-add id_ed25519
+
+clonar repositório manualmente
+entra na conta do git
+na aba Repositories e escolha um repositorio
+clica no botao verde Code
+escolhe a aba SSh e copia o conteudo
+navega para pasta desejada pelo bash do git
+digita git clone e depois o conteudo copiado do botao verde Code
+
+pra iniciar um repositorio numa pasta entre na pasta pelo git bash e digite
+git init
+
+para configurar globalmente o email que vai aparecer na identificacao do repositorio digite
+git config --global user.email "euripedesdark@gmail.com"
+
+para configurar globalmente o nome que vai aparecer na identificação do nome do dono do repo digite
+git config --global user.name Euripedes
+
+para adicionar algo dentro do github cloud, vai dentro da pasta do arquivo pelo git bash e digita
+git add *
+
+para gerar o commit, vai dentro da pasta do arquivo pelo git bash e digita
+git commit -m " " 
+onde no " " vc coloca informações especificando algo sobre o commit
+
+para saber o status dos commits do branch da pasta digite
+git status
+
+para adicionar os arquivos do git ao repositorio remoto do github digite
+git remote add origin https://github.com/nome_do_usuário_/pasta_do_repo_no_github
+origin é um alias
+
+para empurrar para a nuvem do github e armazenar online
+git push origin master
+onde master é o nome da branch principal
+
+git clone https://github.com/cython/cython.git clona um repositorio do github, no exemplo é do cython
+
+
+
+
