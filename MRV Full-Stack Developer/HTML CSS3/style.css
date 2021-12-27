@@ -1,7 +1,8 @@
 body{
     background-color: #f7f7f7;
     font-family: Verdana;
-    width: 1000px;
+    max-width: 1000px;
+    margin:auto;
 }
 .photo{
     border: 1px solid #505050;
@@ -39,6 +40,7 @@ a{
     margin:0px;
     margin-bottom: 15px;
     text-transform: capitalize;
+    text-align: justify;
 
 }
 
@@ -52,8 +54,7 @@ a{
 .contact_list{
     list-style-type: none;
     padding: 5px;
-
+font
 }
 .contact_list li a{
-    text-decoration: none;
-    
+    text-decoration: none;}  
